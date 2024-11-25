@@ -1,0 +1,128 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.book {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: -80px;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  perspective: 600px;
+}
+
+.spine {
+  background: #333;
+  width: 20px;
+  height: 120px;
+  transform-origin: center left;
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  transform: rotateY(0deg);
+}
+
+.spine-text {
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cover {
+  width: 100px;
+  height: 120px;
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  margin: 0;
+  padding: 0;
+  transform: rotateY(95deg) translateX(-1px);
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+  transform: rotateY(-30deg);
+}
+
+.bookshelf {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  border: burlywood 5px solid;
+  padding-right: 200px;
+  padding-left: 10px;
+}
+
+button {
+  background: #0cd1ba;
+  color: #000000;
+  padding: 10px 20px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid grey;
+  transition: transform 0.1s ease, background 0.3s ease;
+  position: relative;
+  z-index: 1;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  perspective: 1000px;
+  transform: rotateY(calc((var(--mouse-x) - 50%) * 64deg));
+  transform: rotateX(calc((50% - var(--mouse-y)) * 128deg));
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  width: 320%;
+  height: 880%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255, 255, 255), transparent);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+button:hover {
+  background: #0c6ed1;
+  transition: 0.3s ease;
+  transform: scale(1.1);
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:active {
+  transform: perspective(1000px) translateZ(-10px);
+}
+
+button:active::before {
+  opacity: 0.8;
+}
