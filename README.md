@@ -8,5 +8,4 @@ To run it yourself:
 
 You can also go to the [demo site](https://skeumorphicbookshelfs.web.app/), BUT IT IS VERY GLITCHY, DUE TO CORS. I CAN NOT RECOMMEND ENOUGH TO JUST RUN IT YOURSELF.
 
-
-![Demo video](https://cloud-f66iac74b-hack-club-bot.vercel.app/0react_app_-_brave_2024-11-24_22-36-22.mp4)
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://cloud-f66iac74b-hack-club-bot.vercel.app/0react_app_-_brave_2024-11-24_22-36-22.mp4)
